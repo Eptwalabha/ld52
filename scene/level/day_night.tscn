@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://btayx8o2rhi78"]
+
+[ext_resource type="Texture2D" uid="uid://xp5k4w74fa3o" path="res://icon.svg" id="1_aldsk"]
+[ext_resource type="Script" path="res://scene/level/day_night.gd" id="1_kpu7u"]
+
+[node name="SunMoon" type="Node2D"]
+script = ExtResource("1_kpu7u")
+
+[node name="pivot" type="Node2D" parent="."]
+position = Vector2(0, 94)
+
+[node name="moon" type="Sprite2D" parent="pivot"]
+position = Vector2(-0.000888506, -400)
+texture = ExtResource("1_aldsk")
+
+[node name="sun" type="Sprite2D" parent="pivot"]
+position = Vector2(0.00111063, 500)
+rotation = 3.14159
+texture = ExtResource("1_aldsk")

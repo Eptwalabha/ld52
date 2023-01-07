@@ -58,11 +58,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("charge"):
 		start_spit_charge()
 
-	if Input.is_action_just_released("charge"):
-		if spitting:
-			end_spit_charge()
-		else:
-			anim.play("hit")
+	if spitting and Input.is_action_just_released("charge"):
+		end_spit_charge()
 
 	if spitting and Input.is_action_pressed("attack"):
 		spitting_charge += delta
@@ -70,7 +67,6 @@ func _process(delta):
 			end_spit_charge()
 
 func start_spit_charge() -> void:
-	print("water_level %s" % water_level)
 	spitting = water_level > 0.0
 	aim.visible = spitting
 	spitting_charge = 0.0
@@ -86,7 +82,6 @@ func drink(delta: float) -> void:
 	water_level = min(water_level + delta * drinking_amount * drinking_speed, water_max_capacity)
 
 func spit(charging_time: float) -> float:
-	prints(charging_time, spit_max_charge, charging_time / spit_max_charge)
 	var spit_ratio = spitting_curve.sample(min(charging_time / spit_max_charge, 1.0))
 	var spit_amount : float = min(water_level, 10.0 + water_level * spit_ratio)
 	water_level = water_level - spit_amount
