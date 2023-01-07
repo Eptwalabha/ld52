@@ -7,8 +7,9 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@onready var pivot : Node2D = $Pivot
+@onready var pivot : Node2D = $pivot
 @onready var aim : Node2D = $aim
+@onready var anim : AnimationPlayer = $AnimationPlayer
 
 @export var water_max_capacity : int = 100
 @export var drinking_speed : float = 150.0
@@ -52,9 +53,16 @@ func _process(delta):
 		drink(delta)
 
 	if Input.is_action_just_pressed("attack"):
+		anim.play("hit")
+		
+	if Input.is_action_just_pressed("charge"):
 		start_spit_charge()
-	if spitting and Input.is_action_just_released("attack"):
-		end_spit_charge()
+
+	if Input.is_action_just_released("charge"):
+		if spitting:
+			end_spit_charge()
+		else:
+			anim.play("hit")
 
 	if spitting and Input.is_action_pressed("attack"):
 		spitting_charge += delta
@@ -64,10 +72,12 @@ func _process(delta):
 func start_spit_charge() -> void:
 	print("water_level %s" % water_level)
 	spitting = water_level > 0.0
+	aim.visible = spitting
 	spitting_charge = 0.0
 
 func end_spit_charge() -> void:
 	spitting = false
+	aim.visible = false
 	emit_signal("spat", spitting_charge)
 
 func drink(delta: float) -> void:

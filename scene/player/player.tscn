@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmw024l2feyww"]
+[gd_scene load_steps=11 format=3 uid="uid://cmw024l2feyww"]
 
 [ext_resource type="Script" path="res://scene/player/player.gd" id="1_pdtgp"]
 [ext_resource type="Texture2D" uid="uid://xp5k4w74fa3o" path="res://icon.svg" id="2_e6uun"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ky3gt"]
+radius = 14.5536
+height = 98.9278
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_wyi5i"]
 length = 40.0
@@ -15,6 +19,92 @@ height = 52.0
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_ge34x"]
 
+[sub_resource type="Animation" id="Animation_d5dbg"]
+resource_name = "hit"
+length = 0.5
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivot/straw:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.06, 0.22, 0.26, 0.32, 0.42),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.20602, -1.20602, 1.10654, 1.10654, 0.804597, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/straw/Node2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.1, 0.22, 0.26, 0.42, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.60919, 0.0663225, 0.0122173, 1.56731, 1.80991, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pivot/straw/hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.32),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_q01mu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivot/straw:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/straw/Node2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pivot/straw/hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tev7r"]
+_data = {
+"RESET": SubResource("Animation_q01mu"),
+"hit": SubResource("Animation_d5dbg")
+}
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_mask = 14
 floor_constant_speed = true
@@ -22,48 +112,63 @@ floor_snap_length = 5.0
 script = ExtResource("1_pdtgp")
 
 [node name="aim" type="Node2D" parent="."]
-rotation = 0.785398
+visible = false
+rotation = 1.5708
 
 [node name="Icon" type="Sprite2D" parent="aim"]
 position = Vector2(0, -81)
 scale = Vector2(0.0625, 0.40625)
 texture = ExtResource("2_e6uun")
 
-[node name="Pivot" type="Node2D" parent="."]
+[node name="pivot" type="Node2D" parent="."]
 
-[node name="Straw" type="Node2D" parent="Pivot"]
+[node name="straw" type="Node2D" parent="pivot"]
 
-[node name="Icon2" type="Sprite2D" parent="Pivot/Straw"]
-position = Vector2(-1.00001, -10)
-rotation = 0.924959
-scale = Vector2(0.0553243, 0.829865)
-texture = ExtResource("2_e6uun")
+[node name="Node2D" type="Node2D" parent="pivot/straw"]
+position = Vector2(64.3062, -50.2465)
+scale = Vector2(1, 1)
 
-[node name="Icon" type="Sprite2D" parent="Pivot/Straw/Icon2"]
-position = Vector2(-192, -78.9333)
+[node name="Icon" type="Sprite2D" parent="pivot/straw/Node2D"]
+position = Vector2(-0.696259, -21.4989)
 rotation = -0.0478683
-scale = Vector2(1.01627, 3.30176)
-skew = -1.43042
+scale = Vector2(0.0738331, 0.383896)
 texture = ExtResource("2_e6uun")
 
-[node name="Icon" type="Sprite2D" parent="Pivot"]
+[node name="Icon2" type="Sprite2D" parent="pivot/straw"]
+position = Vector2(15, -12)
+rotation = 0.924959
+scale = Vector2(0.0723474, 1)
+texture = ExtResource("2_e6uun")
+
+[node name="hitbox" type="Area2D" parent="pivot/straw"]
+position = Vector2(64.3062, -50.2465)
+scale = Vector2(1, 1)
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/straw/hitbox"]
+position = Vector2(-2.20449, 2.0866)
+rotation = 4.047
+shape = SubResource("CapsuleShape2D_ky3gt")
+
+[node name="Icon" type="Sprite2D" parent="pivot"]
 scale = Vector2(0.265625, 0.5)
 texture = ExtResource("2_e6uun")
 
-[node name="ItemDetector" type="Area2D" parent="Pivot"]
+[node name="ItemDetector" type="Area2D" parent="pivot"]
 collision_layer = 0
 collision_mask = 12
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/ItemDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/ItemDetector"]
 position = Vector2(30, 0)
 rotation = -1.5708
 shape = SubResource("SeparationRayShape2D_wyi5i")
 
-[node name="WaterDetector" type="Area2D" parent="Pivot"]
+[node name="WaterDetector" type="Area2D" parent="pivot"]
 collision_layer = 0
 collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/WaterDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/WaterDetector"]
 position = Vector2(22.5, 34.5)
 shape = SubResource("RectangleShape2D_h5v0u")
 
@@ -74,5 +179,10 @@ shape = SubResource("CapsuleShape2D_ijvmf")
 position = Vector2(0, 20)
 shape = SubResource("SeparationRayShape2D_ge34x")
 
-[connection signal="area_entered" from="Pivot/ItemDetector" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="Pivot/WaterDetector" to="." method="_on_area_2d_area_entered"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tev7r")
+}
+
+[connection signal="area_entered" from="pivot/ItemDetector" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="pivot/WaterDetector" to="." method="_on_area_2d_area_entered"]
