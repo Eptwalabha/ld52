@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvm0bjqjl8qe5"]
+
+[ext_resource type="PackedScene" uid="uid://jp1xy6r2x0bo" path="res://scene/level/level.tscn" id="1_lw7lw"]
+[ext_resource type="Script" path="res://scene/game.gd" id="1_ndv1p"]
+[ext_resource type="PackedScene" uid="uid://cmw024l2feyww" path="res://scene/player/player.tscn" id="2_83nul"]
+[ext_resource type="PackedScene" uid="uid://cm2oorf8k7sqw" path="res://scene/props/flower.tscn" id="4_gwt1y"]
+[ext_resource type="PackedScene" uid="uid://dg5j6nndn3ejs" path="res://scene/water/water_spash.tscn" id="5_v313e"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_ndv1p")
+
+[node name="level" parent="." instance=ExtResource("1_lw7lw")]
+
+[node name="player" parent="." instance=ExtResource("2_83nul")]
+
+[node name="camera" type="Camera2D" parent="player"]
+position = Vector2(0, -100)
+current = true
+limit_left = -500
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+
+[node name="flower" parent="." instance=ExtResource("4_gwt1y")]
+position = Vector2(713, 193)
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="player" type="Label" parent="ui"]
+offset_left = 128.0
+offset_top = 13.0
+offset_right = 168.0
+offset_bottom = 36.0
+
+[node name="plant" type="Label" parent="ui"]
+offset_left = 503.0
+offset_top = 8.0
+offset_right = 543.0
+offset_bottom = 31.0
+
+[node name="WaterSpash" parent="." instance=ExtResource("5_v313e")]
+
+[connection signal="spat" from="player" to="." method="_on_player_spat"]
+[connection signal="died" from="flower" to="." method="_on_flower_died"]

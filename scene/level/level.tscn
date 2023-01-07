@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://jp1xy6r2x0bo"]
+
+[ext_resource type="Script" path="res://scene/level/level.gd" id="1_8vjyf"]
+[ext_resource type="PackedScene" uid="uid://sgucavgnwvg5" path="res://scene/water/water_source.tscn" id="2_vt7pf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xdlb"]
+size = Vector2(82, 714)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_8vjyf")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-464, 305, -240, 250, -115, 150, -14, 91, 93, 72, 256, 71, 378, 109, 486, 158, 683, 185, 821, 182, 972, 137, 1093, 115, 1189, 132)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 56
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(841, 472, 459.303, 471.252, -179, 470, -598, 462, -587, 364, -463, 305, -235, 250, -121, 150, -15, 93, 96, 72, 256, 73, 373, 109, 480, 158, 682, 186, 822, 181, 970, 138, 1093, 115, 1193, 135, 1269, 482)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-474, 39)
+shape = SubResource("RectangleShape2D_6xdlb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1186, -117)
+shape = SubResource("RectangleShape2D_6xdlb")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+
+[node name="WaterSource" parent="." instance=ExtResource("2_vt7pf")]
+position = Vector2(-535, 130)

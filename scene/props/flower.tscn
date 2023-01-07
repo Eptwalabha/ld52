@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm2oorf8k7sqw"]
+
+[ext_resource type="Texture2D" uid="uid://xp5k4w74fa3o" path="res://icon.svg" id="1_0bo4h"]
+[ext_resource type="Script" path="res://scene/props/flower.gd" id="1_rq7to"]
+
+[sub_resource type="Curve" id="Curve_cjpq8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.59176, 0.5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwuwt"]
+size = Vector2(100, 126)
+
+[node name="Flower" type="Node2D"]
+script = ExtResource("1_rq7to")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(-24, -46)
+rotation = 0.863753
+scale = Vector2(0.484375, 0.161377)
+texture = ExtResource("1_0bo4h")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-1, 0, 2, -43, 19, -74, 46, -89)
+width_curve = SubResource("Curve_cjpq8")
+default_color = Color(0.239216, 0.266667, 0.356863, 1)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(57, -100)
+rotation = 0.863753
+scale = Vector2(0.484375, 0.484375)
+texture = ExtResource("1_0bo4h")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, -61)
+shape = SubResource("RectangleShape2D_gwuwt")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

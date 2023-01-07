@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://sgucavgnwvg5"]
+
+[ext_resource type="Script" path="res://scene/water/water_source.gd" id="1_5wgdc"]
+
+[node name="WaterSource" type="Area2D"]
+collision_layer = 32
+script = ExtResource("1_5wgdc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-57, -3, 514, -3, 516, 318, -60, 325)
