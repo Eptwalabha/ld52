@@ -6,6 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x5tiu"]
 shader = ExtResource("2_i53i8")
+shader_parameter/sky_color = Color(0.380392, 0.709804, 0.796078, 1)
 
 [node name="SunMoon" type="Node2D"]
 script = ExtResource("1_kpu7u")

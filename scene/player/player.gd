@@ -101,7 +101,9 @@ func start_drinking() -> void:
 	drinking = true
 	if not Input.is_action_pressed("action"):
 		stop_drinking()
-	elif not can_drink():
+		return
+
+	if not can_drink():
 		print("cannot drink")
 		anim.play("cannot_drink")
 	else:
@@ -140,6 +142,7 @@ func spit() -> void:
 		return
 	var bubble_damage : float = __get_bubble_damage()
 	fullness -= 1
+	__update_fullness()
 	emit_signal("spat", bubble_damage)
 
 func get_aim_direction() -> Vector2:
@@ -149,7 +152,7 @@ func get_water_capacity() -> int:
 	return fullness
 
 func __update_fullness() -> void:
-	pass
+	__set_speed()
 
 func _on_item_detector_area_entered(_area):
 	pass

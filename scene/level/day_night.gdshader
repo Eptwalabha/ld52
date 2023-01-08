@@ -1,5 +1,7 @@
 shader_type canvas_item;
 
+uniform vec4 sky_color : source_color;
+
 void fragment() {
-	COLOR = vec4(1., 1., 1., 1.);
+	COLOR = sky_color;
 }

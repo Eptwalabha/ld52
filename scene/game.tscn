@@ -19,39 +19,43 @@ motion_scale = Vector2(0, 0)
 [node name="SunMoon" parent="parallax/sky" instance=ExtResource("6_kxb6o")]
 position = Vector2(587, 336)
 
-[node name="mountains" type="ParallaxLayer" parent="parallax"]
+[node name="dunes" type="ParallaxLayer" parent="parallax"]
 motion_scale = Vector2(0.1, 0.1)
 
-[node name="Icon" type="Sprite2D" parent="parallax/mountains"]
+[node name="Node2D" type="Node2D" parent="parallax/dunes"]
+position = Vector2(0, 200)
+scale = Vector2(1, 0.48)
+
+[node name="Icon" type="Sprite2D" parent="parallax/dunes/Node2D"]
 modulate = Color(0.27451, 0.27451, 0.27451, 1)
 self_modulate = Color(0, 0, 0, 1)
 position = Vector2(64.7183, 455.718)
 rotation = -0.779218
-scale = Vector2(3.875, 3.875)
+scale = Vector2(4, 4)
 texture = ExtResource("2_hddjt")
 
-[node name="Icon2" type="Sprite2D" parent="parallax/mountains"]
+[node name="Icon2" type="Sprite2D" parent="parallax/dunes/Node2D"]
 modulate = Color(0.27451, 0.27451, 0.27451, 1)
 self_modulate = Color(0, 0, 0, 1)
 position = Vector2(430.718, 554.718)
 rotation = -0.779218
-scale = Vector2(3.875, 3.875)
+scale = Vector2(4, 4)
 texture = ExtResource("2_hddjt")
 
-[node name="Icon4" type="Sprite2D" parent="parallax/mountains"]
+[node name="Icon4" type="Sprite2D" parent="parallax/dunes/Node2D"]
 modulate = Color(0.27451, 0.27451, 0.27451, 1)
 self_modulate = Color(0, 0, 0, 1)
 position = Vector2(1175.72, 535.718)
 rotation = -0.779218
-scale = Vector2(3.875, 3.875)
+scale = Vector2(4, 4)
 texture = ExtResource("2_hddjt")
 
-[node name="Icon3" type="Sprite2D" parent="parallax/mountains"]
+[node name="Icon3" type="Sprite2D" parent="parallax/dunes/Node2D"]
 modulate = Color(0.27451, 0.27451, 0.27451, 1)
 self_modulate = Color(0, 0, 0, 1)
 position = Vector2(801.718, 404.718)
 rotation = -0.779218
-scale = Vector2(3.875, 3.875)
+scale = Vector2(4, 4)
 texture = ExtResource("2_hddjt")
 
 [node name="foreground" type="ParallaxLayer" parent="parallax"]
@@ -69,7 +73,7 @@ position = Vector2(-197, 209)
 unique_name_in_owner = true
 
 [node name="camera" type="Camera2D" parent="parallax/foreground/player"]
-offset = Vector2(0, -300)
+offset = Vector2(0, -400)
 current = true
 limit_left = -500
 limit_smoothed = true
