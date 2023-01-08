@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvm0bjqjl8qe5"]
+[gd_scene load_steps=8 format=3 uid="uid://bvm0bjqjl8qe5"]
 
 [ext_resource type="PackedScene" uid="uid://jp1xy6r2x0bo" path="res://scene/level/level.tscn" id="1_lw7lw"]
 [ext_resource type="Script" path="res://scene/game.gd" id="1_ndv1p"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://xp5k4w74fa3o" path="res://icon.svg" id="2_hddjt"]
 [ext_resource type="PackedScene" uid="uid://cm2oorf8k7sqw" path="res://scene/props/flower.tscn" id="4_gwt1y"]
 [ext_resource type="PackedScene" uid="uid://btayx8o2rhi78" path="res://scene/level/day_night.tscn" id="6_kxb6o"]
+[ext_resource type="PackedScene" uid="uid://ifoicgn75pxc" path="res://scene/props/tree.tscn" id="6_wd8ky"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ndv1p")
@@ -61,11 +62,13 @@ texture = ExtResource("2_hddjt")
 unique_name_in_owner = true
 position = Vector2(713, 193)
 
+[node name="Tree" parent="parallax/foreground/level" instance=ExtResource("6_wd8ky")]
+position = Vector2(-197, 209)
+
 [node name="player" parent="parallax/foreground" instance=ExtResource("2_83nul")]
 unique_name_in_owner = true
 
 [node name="camera" type="Camera2D" parent="parallax/foreground/player"]
-position = Vector2(0, -170)
 offset = Vector2(0, -300)
 current = true
 limit_left = -500
@@ -82,12 +85,14 @@ offset_left = 128.0
 offset_top = 13.0
 offset_right = 168.0
 offset_bottom = 36.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="plant" type="Label" parent="ui"]
 offset_left = 503.0
 offset_top = 8.0
 offset_right = 543.0
 offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [connection signal="new_cycle" from="parallax/sky/SunMoon" to="." method="_on_sun_moon_new_cycle"]
 [connection signal="died" from="parallax/foreground/level/flower" to="." method="_on_flower_died"]

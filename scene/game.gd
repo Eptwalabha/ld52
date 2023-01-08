@@ -22,15 +22,13 @@ func _process(delta):
 func _on_flower_died():
 	print("game over")
 
-
-func _on_player_spat(charged_time):
-	var amount = player.spit(charged_time)
+func _on_player_spat(damage):
 	var bubble : WaterBubble = Bubble.instantiate()
 	bubble.splashed.connect(_on_bubble_splashed)
 	foreground.add_child(bubble)
 	bubble.global_transform = player.global_transform
 	bubble.apply_impulse(player.get_aim_direction() * 800.0)
-	bubble.water_volume = amount
+	bubble.damage = damage
 
 func _on_bubble_splashed(position):
 	var splash : CPUParticles2D = Splash.instantiate()

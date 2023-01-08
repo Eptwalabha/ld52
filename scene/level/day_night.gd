@@ -4,6 +4,8 @@ extends Node2D
 signal new_cycle(id)
 
 @onready var pivot : Node2D = $pivot
+@onready var moon : Sprite2D = $pivot/moon
+@onready var sun : Sprite2D = $pivot/sun
 
 @export var cycle_duration : float = 120.0
 
@@ -16,6 +18,8 @@ func _ready():
 
 func _process(delta):
 	pivot.rotation += delta * cycle_speed
+	sun.rotation -= delta * cycle_speed
+	moon.rotation -= delta * cycle_speed
 	if pivot.rotation > TAU:
 		current_cycle += 1
 		pivot.rotation -= TAU

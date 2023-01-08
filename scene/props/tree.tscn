@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ifoicgn75pxc"]
+
+[ext_resource type="PackedScene" uid="uid://dnauiqfd2hxfi" path="res://scene/water/water_source.tscn" id="1_y3rf3"]
+[ext_resource type="Texture2D" uid="uid://xp5k4w74fa3o" path="res://icon.svg" id="2_sb2jx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imppj"]
+size = Vector2(52, 128)
+
+[node name="Tree" instance=ExtResource("1_y3rf3")]
+
+[node name="Trigger" parent="." index="0"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_imppj")
+
+[node name="trunk" type="Sprite2D" parent="." index="1"]
+position = Vector2(0, -47)
+scale = Vector2(0.203125, 1)
+texture = ExtResource("2_sb2jx")
+
+[node name="leaves" type="Sprite2D" parent="trunk" index="0"]
+position = Vector2(-1.90735e-06, -113)
+scale = Vector2(4.73077, 0.859375)
+texture = ExtResource("2_sb2jx")

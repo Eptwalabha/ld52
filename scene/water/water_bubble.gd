@@ -7,7 +7,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@export var water_volume : float = 20.0
+@export var damage : float = 20.0
 
 func _physics_process(delta):
 	velocity.y += gravity * delta

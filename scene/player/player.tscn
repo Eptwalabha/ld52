@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmw024l2feyww"]
+[gd_scene load_steps=15 format=3 uid="uid://cmw024l2feyww"]
 
 [ext_resource type="Script" path="res://scene/player/player.gd" id="1_pdtgp"]
 [ext_resource type="Texture2D" uid="uid://xp5k4w74fa3o" path="res://icon.svg" id="2_e6uun"]
@@ -11,54 +11,13 @@ height = 98.9278
 length = 40.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5v0u"]
-size = Vector2(71, 23)
+size = Vector2(50, 30)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ijvmf"]
 radius = 13.0
 height = 52.0
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_ge34x"]
-
-[sub_resource type="Animation" id="Animation_d5dbg"]
-resource_name = "hit"
-length = 0.5
-step = 0.02
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("pivot/straw:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.02, 0.06, 0.22, 0.26, 0.32, 0.42),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, -1.20602, -1.20602, 1.10654, 1.10654, 0.804597, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("pivot/straw/Node2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.02, 0.1, 0.22, 0.26, 0.42, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 1.60919, 0.0663225, 0.0122173, 1.56731, 1.80991, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("pivot/straw/hitbox/CollisionShape2D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.32),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
 
 [sub_resource type="Animation" id="Animation_q01mu"]
 length = 0.001
@@ -98,11 +57,306 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pivot/straw:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("pivot/character_pivot:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("pivot/character_pivot/Icon:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_d5dbg"]
+resource_name = "hit"
+length = 0.5
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivot/straw:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.1, 0.18, 0.26, 0.32, 0.42),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.20602, -1.20602, 1.10654, 1.10654, 0.804597, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/straw/Node2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.14, 0.18, 0.26, 0.42, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.60919, 0.0663225, 0.0122173, 1.56731, 1.80991, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pivot/straw/hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.32),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_kp166"]
+resource_name = "drink"
+length = 0.3
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivot/straw:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, 60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/straw:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.872665, -0.907571, -0.872665]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pivot/straw/Node2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64.3062, -50.2465)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pivot/straw/Node2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.08479, -0.884882, -1.08479]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("pivot/character_pivot:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.301942, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_2rb3w"]
+resource_name = "start_drinking"
+length = 0.5
+step = 0.02
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_drinking"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/straw:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.04, 0.14, 0.18, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(30, -20), Vector2(30, -20), Vector2(30, 60)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pivot/straw:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.04, 0.14, 0.18, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.56302, -1.56302, -0.872665]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pivot/straw/Node2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.04, 0.3, 0.44),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -1.08479]
+}
+
+[sub_resource type="Animation" id="Animation_mffkh"]
+resource_name = "stop_drinking"
+length = 0.5
+step = 0.02
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/straw:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.04, 0.14, 0.18, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(30, -20), Vector2(30, -20), Vector2(30, 60)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pivot/straw:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.04, 0.14, 0.18, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.56302, -1.56302, -0.872665]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pivot/straw/Node2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.04, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -1.08479]
+}
+
+[sub_resource type="Animation" id="Animation_wgoxn"]
+resource_name = "cannot_drink"
+length = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop_drinking"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/character_pivot/Icon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pivot/character_pivot/Icon:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.502655, 0.401426, -0.403171, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tev7r"]
 _data = {
 "RESET": SubResource("Animation_q01mu"),
-"hit": SubResource("Animation_d5dbg")
+"cannot_drink": SubResource("Animation_wgoxn"),
+"drink": SubResource("Animation_kp166"),
+"hit": SubResource("Animation_d5dbg"),
+"start_drinking": SubResource("Animation_2rb3w"),
+"stop_drinking": SubResource("Animation_mffkh")
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
@@ -126,7 +380,6 @@ texture = ExtResource("2_e6uun")
 
 [node name="Node2D" type="Node2D" parent="pivot/straw"]
 position = Vector2(64.3062, -50.2465)
-scale = Vector2(1, 1)
 
 [node name="Icon" type="Sprite2D" parent="pivot/straw/Node2D"]
 position = Vector2(-0.696259, -21.4989)
@@ -142,7 +395,6 @@ texture = ExtResource("2_e6uun")
 
 [node name="hitbox" type="Area2D" parent="pivot/straw"]
 position = Vector2(64.3062, -50.2465)
-scale = Vector2(1, 1)
 collision_layer = 64
 collision_mask = 0
 
@@ -151,7 +403,9 @@ position = Vector2(-2.20449, 2.0866)
 rotation = 4.047
 shape = SubResource("CapsuleShape2D_ky3gt")
 
-[node name="Icon" type="Sprite2D" parent="pivot"]
+[node name="character_pivot" type="Node2D" parent="pivot"]
+
+[node name="Icon" type="Sprite2D" parent="pivot/character_pivot"]
 scale = Vector2(0.265625, 0.5)
 texture = ExtResource("2_e6uun")
 
@@ -169,7 +423,7 @@ collision_layer = 0
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/WaterDetector"]
-position = Vector2(22.5, 34.5)
+position = Vector2(25, 30)
 shape = SubResource("RectangleShape2D_h5v0u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -184,5 +438,6 @@ libraries = {
 "": SubResource("AnimationLibrary_tev7r")
 }
 
-[connection signal="area_entered" from="pivot/ItemDetector" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="pivot/WaterDetector" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="pivot/ItemDetector" to="." method="_on_item_detector_area_entered"]
+[connection signal="area_entered" from="pivot/WaterDetector" to="." method="_on_water_detector_area_entered"]
+[connection signal="area_exited" from="pivot/WaterDetector" to="." method="_on_water_detector_area_exited"]

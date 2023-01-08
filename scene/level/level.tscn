@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://jp1xy6r2x0bo"]
+[gd_scene load_steps=3 format=3 uid="uid://jp1xy6r2x0bo"]
 
 [ext_resource type="Script" path="res://scene/level/level.gd" id="1_8vjyf"]
-[ext_resource type="PackedScene" uid="uid://sgucavgnwvg5" path="res://scene/water/water_source.tscn" id="2_vt7pf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xdlb"]
 size = Vector2(82, 714)
@@ -28,6 +27,3 @@ position = Vector2(1186, -117)
 shape = SubResource("RectangleShape2D_6xdlb")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-
-[node name="WaterSource" parent="." instance=ExtResource("2_vt7pf")]
-position = Vector2(-535, 130)

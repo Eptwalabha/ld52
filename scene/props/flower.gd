@@ -15,5 +15,5 @@ func _process(delta) -> void:
 
 func _on_area_2d_body_entered(body):
 	if body is WaterBubble:
-		water_volume += body.water_volume
+		water_volume += body.damage
 		body.pop(global_position)
