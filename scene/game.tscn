@@ -17,13 +17,13 @@ script = ExtResource("1_ndv1p")
 motion_scale = Vector2(0, 0)
 
 [node name="SunMoon" parent="parallax/sky" instance=ExtResource("6_kxb6o")]
-position = Vector2(587, 336)
+position = Vector2(587, 450)
 
 [node name="dunes" type="ParallaxLayer" parent="parallax"]
 motion_scale = Vector2(0.1, 0.1)
 
 [node name="Node2D" type="Node2D" parent="parallax/dunes"]
-position = Vector2(0, 200)
+position = Vector2(0, 350)
 scale = Vector2(1, 0.48)
 
 [node name="Icon" type="Sprite2D" parent="parallax/dunes/Node2D"]
