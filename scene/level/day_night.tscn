@@ -1,17 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://btayx8o2rhi78"]
+[gd_scene load_steps=7 format=3 uid="uid://btayx8o2rhi78"]
 
 [ext_resource type="Texture2D" uid="uid://xp5k4w74fa3o" path="res://icon.svg" id="1_aldsk"]
 [ext_resource type="Script" path="res://scene/level/day_night.gd" id="1_kpu7u"]
 [ext_resource type="Shader" path="res://scene/level/day_night.gdshader" id="2_i53i8"]
+[ext_resource type="Texture2D" uid="uid://db0gep3r0hry6" path="res://resource/shader/day_night_cycle.tres" id="3_jpmfv"]
+[ext_resource type="Texture2D" uid="uid://yau728jfirjf" path="res://resource/images/sun.png" id="5_b8ref"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x5tiu"]
 shader = ExtResource("2_i53i8")
-shader_parameter/sky_color = Color(0.380392, 0.709804, 0.796078, 1)
+shader_parameter/day_color = Color(0.4, 0.7, 0.8, 1)
+shader_parameter/night_color = Color(0, 0.00784314, 0.164706, 1)
+shader_parameter/time = 0.0
+shader_parameter/day_night = ExtResource("3_jpmfv")
 
 [node name="SunMoon" type="Node2D"]
 script = ExtResource("1_kpu7u")
+cycle_duration = 10.0
 
-[node name="Sky" type="Sprite2D" parent="."]
+[node name="sky" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_x5tiu")
 scale = Vector2(17.1641, 10.6875)
 texture = ExtResource("1_aldsk")
@@ -25,4 +31,5 @@ texture = ExtResource("1_aldsk")
 
 [node name="sun" type="Sprite2D" parent="pivot"]
 position = Vector2(0.001, 480)
-texture = ExtResource("1_aldsk")
+scale = Vector2(0.53116, 0.53116)
+texture = ExtResource("5_b8ref")

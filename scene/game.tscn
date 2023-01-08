@@ -89,14 +89,12 @@ offset_left = 128.0
 offset_top = 13.0
 offset_right = 168.0
 offset_bottom = 36.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="plant" type="Label" parent="ui"]
 offset_left = 503.0
 offset_top = 8.0
 offset_right = 543.0
 offset_bottom = 31.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [connection signal="new_cycle" from="parallax/sky/SunMoon" to="." method="_on_sun_moon_new_cycle"]
 [connection signal="died" from="parallax/foreground/level/flower" to="." method="_on_flower_died"]

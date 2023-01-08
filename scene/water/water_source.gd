@@ -9,7 +9,7 @@ signal emptied
 @export var can_extract_water : bool = true
 
 func drank(amount: int) -> void:
-	if infinit_volume or can_extract_water:
+	if infinit_volume or not can_extract_water:
 		return
 	water_volume = max(0, water_volume - 1)
 	can_extract_water = can_extract_water and water_volume > 0

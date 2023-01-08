@@ -6,6 +6,7 @@ signal new_cycle(id)
 @onready var pivot : Node2D = $pivot
 @onready var moon : Sprite2D = $pivot/moon
 @onready var sun : Sprite2D = $pivot/sun
+@onready var shader : Material = $sky.material
 
 @export var cycle_duration : float = 120.0
 
@@ -15,7 +16,6 @@ var cycle_speed : float = 0.0
 func _ready():
 	cycle_speed = TAU / cycle_duration
 
-
 func _process(delta):
 	pivot.rotation += delta * cycle_speed
 	sun.rotation -= delta * cycle_speed
@@ -24,3 +24,4 @@ func _process(delta):
 		current_cycle += 1
 		pivot.rotation -= TAU
 		emit_signal("new_cycle", current_cycle)
+	shader.set_shader_parameter("time", pivot.rotation / TAU)
