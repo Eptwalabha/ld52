@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cmw024l2feyww" path="res://scene/player/player.tscn" id="2_83nul"]
 [ext_resource type="Texture2D" uid="uid://xp5k4w74fa3o" path="res://icon.svg" id="2_hddjt"]
 [ext_resource type="PackedScene" uid="uid://cm2oorf8k7sqw" path="res://scene/props/flower.tscn" id="4_gwt1y"]
-[ext_resource type="PackedScene" uid="uid://btayx8o2rhi78" path="res://scene/level/day_night.tscn" id="6_kxb6o"]
+[ext_resource type="PackedScene" uid="uid://dcjjch461pfyu" path="res://scene/level/day_night.tscn" id="6_kxb6o"]
 [ext_resource type="PackedScene" uid="uid://ifoicgn75pxc" path="res://scene/props/tree.tscn" id="6_wd8ky"]
 
 [node name="Game" type="Node2D"]
@@ -17,7 +17,9 @@ script = ExtResource("1_ndv1p")
 motion_scale = Vector2(0, 0)
 
 [node name="SunMoon" parent="parallax/sky" instance=ExtResource("6_kxb6o")]
-position = Vector2(587, 450)
+position = Vector2(595, 404)
+day_duration = 10.0
+nbr_days = 6.0
 
 [node name="dunes" type="ParallaxLayer" parent="parallax"]
 motion_scale = Vector2(0.1, 0.1)

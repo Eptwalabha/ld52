@@ -1,31 +1,45 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcjjch461pfyu"]
+[gd_scene load_steps=13 format=3 uid="uid://dcjjch461pfyu"]
 
+[ext_resource type="Shader" path="res://resource/shader/bg.gdshader" id="1_20skv"]
 [ext_resource type="Texture2D" uid="uid://xp5k4w74fa3o" path="res://icon.svg" id="1_aldsk"]
 [ext_resource type="Script" path="res://scene/level/day_night.gd" id="1_kpu7u"]
 [ext_resource type="Shader" path="res://resource/shader/day_night.gdshader" id="2_pcrj4"]
 [ext_resource type="Texture2D" uid="uid://db0gep3r0hry6" path="res://resource/shader/day_night_cycle.tres" id="3_jpmfv"]
 [ext_resource type="Texture2D" uid="uid://yau728jfirjf" path="res://resource/images/sun.png" id="5_b8ref"]
+[ext_resource type="Shader" path="res://resource/shader/moon.gdshader" id="6_0tj67"]
+[ext_resource type="Texture2D" uid="uid://bsrp5x3lqvmym" path="res://resource/images/uv-sphere.png" id="7_6634e"]
+[ext_resource type="Texture2D" uid="uid://c62ox3ev2e6xo" path="res://resource/images/desert-bg.png" id="7_ohvbw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_34ws5"]
+shader = ExtResource("1_20skv")
+shader_parameter/sand_color = null
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x5tiu"]
 shader = ExtResource("2_pcrj4")
 shader_parameter/day_color = Color(0.4, 0.7, 0.8, 1)
 shader_parameter/night_color = Color(0, 0.00784314, 0.164706, 1)
-shader_parameter/time = 0.328
+shader_parameter/time = 0.192
 shader_parameter/day_night = ExtResource("3_jpmfv")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4w1yg"]
+shader = ExtResource("6_0tj67")
+shader_parameter/progression = 0.0
+shader_parameter/moon_normal_map = ExtResource("7_6634e")
+
 [node name="SunMoon" type="Node2D"]
+material = SubResource("ShaderMaterial_34ws5")
 script = ExtResource("1_kpu7u")
-cycle_duration = 10.0
 
 [node name="sky" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_x5tiu")
-scale = Vector2(17.1641, 10.6875)
+scale = Vector2(20.1875, 12.5701)
 texture = ExtResource("1_aldsk")
 
 [node name="pivot" type="Node2D" parent="."]
 position = Vector2(0, 94)
 
 [node name="moon" type="Sprite2D" parent="pivot"]
+material = SubResource("ShaderMaterial_4w1yg")
 position = Vector2(-0.000888506, -400)
 texture = ExtResource("1_aldsk")
 
@@ -34,3 +48,9 @@ modulate = Color(0.964706, 0.890196, 0.65098, 1)
 position = Vector2(0.001, 480)
 scale = Vector2(0.53116, 0.53116)
 texture = ExtResource("5_b8ref")
+
+[node name="sand" type="Sprite2D" parent="."]
+position = Vector2(-13, 110)
+rotation = -0.0402211
+scale = Vector2(1.36719, 1.65461)
+texture = ExtResource("7_ohvbw")

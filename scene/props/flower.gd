@@ -3,12 +3,12 @@ extends Node2D
 
 signal died
 
-@export var water_volume : float = 100.0
+@export var water_volume : float = 2.0
 var alive : bool = true
 
 func _process(delta) -> void:
 	water_volume -= delta
-	if alive and water_volume < 0:
+	if alive and water_volume < 0.0:
 		alive = false
 		emit_signal("died")
 

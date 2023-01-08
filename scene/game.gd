@@ -10,17 +10,10 @@ extends Node2D
 @onready var Bubble = load("res://scene/water/water_bubble.tscn")
 @onready var Splash = load("res://scene/water/water_spash.tscn")
 
-func _ready():
-	pass
-
-
 func _process(delta):
 	player_water_ui.text = "%02.1f L" % player.get_water_capacity()
 	plant_water_ui.text = "%02.1f L" % flower.water_volume
 
-
-func _on_flower_died():
-	print("game over")
 
 func _on_player_spat(damage):
 	var bubble : WaterBubble = Bubble.instantiate()
@@ -36,6 +29,9 @@ func _on_bubble_splashed(position):
 	splash.global_position = position
 	splash.emitting = true
 
+
+func _on_flower_died():
+	print("game over")
 
 func _on_sun_moon_new_cycle(id):
 	print("cycle %s" % id)
