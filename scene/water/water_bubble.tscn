@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://niiqvnrkn5yt"]
+[gd_scene load_steps=4 format=3 uid="uid://niiqvnrkn5yt"]
 
 [ext_resource type="Script" path="res://scene/water/water_bubble.gd" id="1_7euq8"]
+[ext_resource type="Texture2D" uid="uid://d1iimktj5ddjk" path="res://resource/images/bubble.svg" id="2_hsx3a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_btldg"]
 radius = 20.0
@@ -12,3 +13,17 @@ script = ExtResource("1_7euq8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_btldg")
+
+[node name="Bubble" type="Sprite2D" parent="."]
+scale = Vector2(0.394558, 0.394558)
+texture = ExtResource("2_hsx3a")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 16
+lifetime = 0.4
+texture = ExtResource("2_hsx3a")
+emission_shape = 1
+emission_sphere_radius = 17.34
+gravity = Vector2(0, 490)
+scale_amount_min = 0.0
+scale_amount_max = 0.1

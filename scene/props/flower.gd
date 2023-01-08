@@ -6,8 +6,8 @@ signal died
 @export var water_volume : float = 2.0
 var alive : bool = true
 
-func _process(delta) -> void:
-	water_volume -= delta
+func dry(delta: float, sun_intensity: float) -> void:
+	water_volume -= delta * sun_intensity
 	if alive and water_volume < 0.0:
 		alive = false
 		emit_signal("died")

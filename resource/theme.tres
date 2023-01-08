@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bag627kksgf5t"]
+
+[ext_resource type="FontFile" uid="uid://dic2xen77k73j" path="res://resource/fonts/mono.otf" id="1_1xiad"]
+[ext_resource type="FontVariation" uid="uid://db0nx0m1jvcpk" path="res://resource/fonts/bold.tres" id="2_5wamy"]
+
+[resource]
+default_font = ExtResource("1_1xiad")
+Label/fonts/font = ExtResource("1_1xiad")
+RichTextLabel/fonts/bold_font = ExtResource("2_5wamy")

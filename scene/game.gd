@@ -3,16 +3,21 @@ extends Node2D
 
 @onready var player : Player = %player
 @onready var flower : Flower = %flower
-@onready var player_water_ui : Label = $ui/player
-@onready var plant_water_ui : Label = $ui/plant
+@onready var sky : SunMoon = %SunMoon
+@onready var debug_infos : RichTextLabel = $ui/infos
 @onready var foreground : ParallaxLayer = $parallax/foreground
 
 @onready var Bubble = load("res://scene/water/water_bubble.tscn")
 @onready var Splash = load("res://scene/water/water_spash.tscn")
 
+var playing : bool = true
+
 func _process(delta):
-	player_water_ui.text = "%02.1f L" % player.get_water_capacity()
-	plant_water_ui.text = "%02.1f L" % flower.water_volume
+	debug_infos.text = "[color=green]player[/color]: %d L\n[color=green]plant[/color]: %02.1fL\n[color=green]heat[/color]: %1.3f" % \
+		[player.get_water_capacity(), flower.water_volume, sky.get_sun_intensity()]
+	if playing:
+		sky.process(delta)
+		flower.dry(delta, sky.get_sun_intensity())
 
 
 func _on_player_spat(damage):
@@ -31,7 +36,11 @@ func _on_bubble_splashed(position):
 
 
 func _on_flower_died():
-	print("game over")
+	get_tree().change_scene_to_file("res://scene/story/game_over_win.tscn")
 
 func _on_sun_moon_new_cycle(id):
-	print("cycle %s" % id)
+	pass
+
+func _on_sun_moon_harvest_moon():
+	playing = false
+	get_tree().change_scene_to_file("res://scene/story/game_over_win.tscn")

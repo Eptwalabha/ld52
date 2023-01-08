@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcjjch461pfyu"]
+[gd_scene load_steps=14 format=3 uid="uid://dcjjch461pfyu"]
 
 [ext_resource type="Shader" path="res://resource/shader/bg.gdshader" id="1_20skv"]
 [ext_resource type="Texture2D" uid="uid://xp5k4w74fa3o" path="res://icon.svg" id="1_aldsk"]
@@ -13,6 +13,10 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_34ws5"]
 shader = ExtResource("1_20skv")
 shader_parameter/sand_color = null
+
+[sub_resource type="Curve" id="Curve_x5kfg"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.228464, 0), 0.0, 0.0, 0, 0, Vector2(0.359551, 1), 0.0, 0.0, 0, 0, Vector2(0.70412, 1), 0.0, 0.0, 0, 0, Vector2(0.797753, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 6
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x5tiu"]
 shader = ExtResource("2_pcrj4")
@@ -29,6 +33,7 @@ shader_parameter/moon_normal_map = ExtResource("7_6634e")
 [node name="SunMoon" type="Node2D"]
 material = SubResource("ShaderMaterial_34ws5")
 script = ExtResource("1_kpu7u")
+sun_intensity = SubResource("Curve_x5kfg")
 
 [node name="sky" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_x5tiu")

@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "ColorRect",
+"class": &"Fade",
+"language": &"GDScript",
+"path": "res://scene/story/fade_screen.gd"
+}, {
 "base": "Node2D",
 "class": &"Flower",
 "language": &"GDScript",
@@ -35,6 +40,7 @@ _global_script_classes=[{
 "path": "res://scene/water/water_source.gd"
 }]
 _global_script_class_icons={
+"Fade": "",
 "Flower": "",
 "Player": "",
 "SunMoon": "",
@@ -48,6 +54,10 @@ config/name="ld52-harvest"
 run/main_scene="res://scene/game.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[gui]
+
+theme/custom="res://resource/theme.tres"
 
 [input]
 

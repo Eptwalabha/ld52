@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dg5j6nndn3ejs"]
 
-[ext_resource type="Texture2D" uid="uid://xp5k4w74fa3o" path="res://icon.svg" id="1_ik08l"]
+[ext_resource type="Texture2D" uid="uid://d1iimktj5ddjk" path="res://resource/images/bubble.svg" id="1_wglc0"]
 
 [node name="WaterSpash" type="CPUParticles2D"]
 emitting = false
@@ -9,7 +9,7 @@ lifetime = 0.5
 one_shot = true
 explosiveness = 0.83
 randomness = 1.0
-texture = ExtResource("1_ik08l")
+texture = ExtResource("1_wglc0")
 emission_shape = 1
 emission_sphere_radius = 5.0
 direction = Vector2(0, -50)

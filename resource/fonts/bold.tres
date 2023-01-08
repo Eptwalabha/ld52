@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://db0nx0m1jvcpk"]
+
+[ext_resource type="FontFile" uid="uid://dic2xen77k73j" path="res://resource/fonts/mono.otf" id="1_gbc2d"]
+
+[resource]
+base_font = ExtResource("1_gbc2d")
+variation_embolden = 1.0

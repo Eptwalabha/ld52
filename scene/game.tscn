@@ -14,12 +14,11 @@ script = ExtResource("1_ndv1p")
 [node name="parallax" type="ParallaxBackground" parent="."]
 
 [node name="sky" type="ParallaxLayer" parent="parallax"]
-motion_scale = Vector2(0, 0)
+motion_scale = Vector2(0, 0.05)
 
 [node name="SunMoon" parent="parallax/sky" instance=ExtResource("6_kxb6o")]
+unique_name_in_owner = true
 position = Vector2(595, 404)
-day_duration = 10.0
-nbr_days = 6.0
 
 [node name="dunes" type="ParallaxLayer" parent="parallax"]
 motion_scale = Vector2(0.1, 0.1)
@@ -67,6 +66,7 @@ texture = ExtResource("2_hddjt")
 [node name="flower" parent="parallax/foreground/level" instance=ExtResource("4_gwt1y")]
 unique_name_in_owner = true
 position = Vector2(713, 193)
+water_volume = 200.0
 
 [node name="Tree" parent="parallax/foreground/level" instance=ExtResource("6_wd8ky")]
 position = Vector2(-197, 209)
@@ -76,7 +76,7 @@ infinit_volume = true
 unique_name_in_owner = true
 
 [node name="camera" type="Camera2D" parent="parallax/foreground/player"]
-offset = Vector2(0, -600)
+offset = Vector2(0, -650)
 current = true
 limit_left = -500
 limit_smoothed = true
@@ -87,18 +87,18 @@ drag_horizontal_enabled = true
 
 [node name="ui" type="CanvasLayer" parent="."]
 
-[node name="player" type="Label" parent="ui"]
-offset_left = 128.0
-offset_top = 13.0
-offset_right = 168.0
-offset_bottom = 36.0
+[node name="infos" type="RichTextLabel" parent="ui"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -303.0
+offset_bottom = 275.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+bbcode_enabled = true
+text = "toto"
 
-[node name="plant" type="Label" parent="ui"]
-offset_left = 503.0
-offset_top = 8.0
-offset_right = 543.0
-offset_bottom = 31.0
-
+[connection signal="harvest_moon" from="parallax/sky/SunMoon" to="." method="_on_sun_moon_harvest_moon"]
 [connection signal="new_cycle" from="parallax/sky/SunMoon" to="." method="_on_sun_moon_new_cycle"]
 [connection signal="died" from="parallax/foreground/level/flower" to="." method="_on_flower_died"]
 [connection signal="spat" from="parallax/foreground/player" to="." method="_on_player_spat"]
