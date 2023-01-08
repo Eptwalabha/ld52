@@ -73,7 +73,7 @@ position = Vector2(-197, 209)
 unique_name_in_owner = true
 
 [node name="camera" type="Camera2D" parent="parallax/foreground/player"]
-offset = Vector2(0, -400)
+offset = Vector2(0, -600)
 current = true
 limit_left = -500
 limit_smoothed = true
