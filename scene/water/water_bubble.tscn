@@ -1,10 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://niiqvnrkn5yt"]
+[gd_scene load_steps=7 format=3 uid="uid://niiqvnrkn5yt"]
 
 [ext_resource type="Script" path="res://scene/water/water_bubble.gd" id="1_7euq8"]
 [ext_resource type="Texture2D" uid="uid://d1iimktj5ddjk" path="res://resource/images/bubble.svg" id="2_hsx3a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_btldg"]
 radius = 20.0
+
+[sub_resource type="Animation" id="Animation_n344i"]
+resource_name = "wobble"
+length = 0.3
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bubble:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.394558, 0.394558), Vector2(0.44898, 0.272109), Vector2(0.394558, 0.394558)]
+}
+
+[sub_resource type="Animation" id="Animation_w4ovn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bubble:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.394558, 0.394558)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yfv6f"]
+_data = {
+"RESET": SubResource("Animation_w4ovn"),
+"wobble": SubResource("Animation_n344i")
+}
 
 [node name="WaterBubble" type="CharacterBody2D"]
 collision_layer = 32
@@ -27,3 +66,9 @@ emission_sphere_radius = 17.34
 gravity = Vector2(0, 490)
 scale_amount_min = 0.0
 scale_amount_max = 0.1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "wobble"
+libraries = {
+"": SubResource("AnimationLibrary_yfv6f")
+}

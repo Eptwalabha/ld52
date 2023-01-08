@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmw024l2feyww"]
+[gd_scene load_steps=17 format=3 uid="uid://cmw024l2feyww"]
 
 [ext_resource type="Script" path="res://scene/player/player.gd" id="1_pdtgp"]
 [ext_resource type="Texture2D" uid="uid://xp5k4w74fa3o" path="res://icon.svg" id="2_e6uun"]
 [ext_resource type="Texture2D" uid="uid://dsxle7blcgnoi" path="res://resource/images/target.svg" id="2_rjpnl"]
+[ext_resource type="Texture2D" uid="uid://cxirfvbucwxej" path="res://resource/images/straw.svg" id="4_4045j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ky3gt"]
 radius = 14.5536
@@ -401,10 +402,10 @@ scale = Vector2(0.0738331, 0.383896)
 texture = ExtResource("2_e6uun")
 
 [node name="Icon2" type="Sprite2D" parent="pivot/straw"]
-position = Vector2(15, -12)
+position = Vector2(18.245, -14.4456)
 rotation = 0.924959
-scale = Vector2(0.0723474, 1)
-texture = ExtResource("2_e6uun")
+scale = Vector2(0.12, 0.129214)
+texture = ExtResource("4_4045j")
 
 [node name="hitbox" type="Area2D" parent="pivot/straw"]
 position = Vector2(64.3062, -50.2465)
