@@ -10,7 +10,7 @@
 shader = ExtResource("2_i53i8")
 shader_parameter/day_color = Color(0.4, 0.7, 0.8, 1)
 shader_parameter/night_color = Color(0, 0.00784314, 0.164706, 1)
-shader_parameter/time = 0.0
+shader_parameter/time = 0.328
 shader_parameter/day_night = ExtResource("3_jpmfv")
 
 [node name="SunMoon" type="Node2D"]
@@ -30,6 +30,7 @@ position = Vector2(-0.000888506, -400)
 texture = ExtResource("1_aldsk")
 
 [node name="sun" type="Sprite2D" parent="pivot"]
+modulate = Color(0.964706, 0.890196, 0.65098, 1)
 position = Vector2(0.001, 480)
 scale = Vector2(0.53116, 0.53116)
 texture = ExtResource("5_b8ref")

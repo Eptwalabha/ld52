@@ -18,7 +18,7 @@ var aiming : bool = false
 var current_water_source : WaterSource = null
 
 var drinking : bool = false
-@export var drink_level_duration : float = .5
+@export var drink_level_duration : float = .3
 var drinking_duration: float = 0.0
 
 func __set_speed() -> void:
