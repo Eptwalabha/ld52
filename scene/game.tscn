@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvm0bjqjl8qe5"]
+[gd_scene load_steps=9 format=3 uid="uid://bvm0bjqjl8qe5"]
 
 [ext_resource type="PackedScene" uid="uid://jp1xy6r2x0bo" path="res://scene/level/level.tscn" id="1_lw7lw"]
 [ext_resource type="Script" path="res://scene/game.gd" id="1_ndv1p"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cm2oorf8k7sqw" path="res://scene/props/flower.tscn" id="4_gwt1y"]
 [ext_resource type="PackedScene" uid="uid://dcjjch461pfyu" path="res://scene/level/day_night.tscn" id="6_kxb6o"]
 [ext_resource type="PackedScene" uid="uid://ifoicgn75pxc" path="res://scene/props/tree.tscn" id="6_wd8ky"]
+[ext_resource type="PackedScene" uid="uid://46ri45wr2fma" path="res://scene/gnome/gnome.tscn" id="8_5cyso"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ndv1p")
@@ -74,6 +75,7 @@ infinit_volume = true
 
 [node name="player" parent="parallax/foreground" instance=ExtResource("2_83nul")]
 unique_name_in_owner = true
+position = Vector2(-50, 0)
 
 [node name="camera" type="Camera2D" parent="parallax/foreground/player"]
 offset = Vector2(0, -650)
@@ -84,6 +86,9 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = true
 
 [node name="enemies" type="Node2D" parent="parallax/foreground"]
+
+[node name="Gnome" parent="parallax/foreground" node_paths=PackedStringArray("target") instance=ExtResource("8_5cyso")]
+target = NodePath("../level/flower")
 
 [node name="ui" type="CanvasLayer" parent="."]
 

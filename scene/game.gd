@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @onready var player : Player = %player
 @onready var flower : Flower = %flower
 @onready var sky : SunMoon = %SunMoon
@@ -18,7 +17,6 @@ func _process(delta):
 	if playing:
 		sky.process(delta)
 		flower.dry(delta, sky.get_sun_intensity())
-
 
 func _on_player_spat(damage):
 	var bubble : WaterBubble = Bubble.instantiate()

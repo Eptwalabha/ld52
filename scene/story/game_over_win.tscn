@@ -68,7 +68,7 @@ offset_left = -220.0
 offset_top = -84.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "quit"
+text = "retry"
 
 [node name="Fade" parent="." instance=ExtResource("1_kxsqv")]
 metadata/_edit_lock_ = true

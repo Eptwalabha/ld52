@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://46ri45wr2fma"]
+
+[ext_resource type="Script" path="res://scene/gnome/gnome.gd" id="1_iam6g"]
+[ext_resource type="Texture2D" uid="uid://dsxle7blcgnoi" path="res://resource/images/target.svg" id="2_qjudr"]
+[ext_resource type="Script" path="res://scene/gnome/npc_state_idle.gd" id="2_ulmaw"]
+[ext_resource type="Script" path="res://scene/gnome/npc_state_walk.gd" id="3_inp0e"]
+[ext_resource type="Script" path="res://scene/gnome/npc_state_jump.gd" id="4_yxcar"]
+[ext_resource type="Script" path="res://scene/gnome/npc_state_escape.gd" id="5_h0d3m"]
+[ext_resource type="Script" path="res://scene/gnome/npc_state_drink.gd" id="7_73qw6"]
+[ext_resource type="Script" path="res://scene/gnome/npc_state_leave.gd" id="8_bpmka"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ob85"]
+radius = 7.0
+height = 24.0
+
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_o0u1b"]
+length = 26.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cm6k"]
+size = Vector2(34, 16)
+
+[node name="Gnome" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 10
+floor_snap_length = 5.0
+script = ExtResource("1_iam6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_8ob85")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("SeparationRayShape2D_o0u1b")
+
+[node name="pivot" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="pivot"]
+position = Vector2(0, -9.53674e-07)
+scale = Vector2(0.108844, 0.176871)
+texture = ExtResource("2_qjudr")
+
+[node name="plant_detector" type="Area2D" parent="pivot"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/plant_detector"]
+position = Vector2(17, 12)
+shape = SubResource("RectangleShape2D_7cm6k")
+
+[node name="states" type="Node" parent="."]
+
+[node name="idle" type="Node" parent="states"]
+script = ExtResource("2_ulmaw")
+state_name = "idle"
+
+[node name="walk" type="Node" parent="states"]
+script = ExtResource("3_inp0e")
+
+[node name="escape" type="Node" parent="states"]
+script = ExtResource("5_h0d3m")
+
+[node name="jump" type="Node" parent="states"]
+script = ExtResource("4_yxcar")
+state_name = null
+
+[node name="drink" type="Node" parent="states"]
+script = ExtResource("7_73qw6")
+
+[node name="stagger" type="Node" parent="states"]
+
+[node name="leave" type="Node" parent="states"]
+script = ExtResource("8_bpmka")
+
+[connection signal="area_entered" from="pivot/plant_detector" to="." method="_on_plant_detector_area_entered"]
+[connection signal="area_exited" from="pivot/plant_detector" to="." method="_on_plant_detector_area_exited"]

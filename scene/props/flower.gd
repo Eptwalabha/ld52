@@ -12,6 +12,12 @@ func dry(delta: float, sun_intensity: float) -> void:
 		alive = false
 		emit_signal("died")
 
+func drank(amount: float) -> void:
+	if alive:
+		water_volume -= amount
+		if water_volume < 0.0:
+			alive = false
+			emit_signal("died")
 
 func _on_area_2d_body_entered(body):
 	if body is WaterBubble:

@@ -20,9 +20,19 @@ _global_script_classes=[{
 "path": "res://scene/props/flower.gd"
 }, {
 "base": "CharacterBody2D",
+"class": &"Gnome",
+"language": &"GDScript",
+"path": "res://scene/gnome/gnome.gd"
+}, {
+"base": "CharacterBody2D",
 "class": &"Player",
 "language": &"GDScript",
 "path": "res://scene/player/player.gd"
+}, {
+"base": "Node",
+"class": &"State",
+"language": &"GDScript",
+"path": "res://scene/gnome/npc_state.gd"
 }, {
 "base": "Node2D",
 "class": &"SunMoon",
@@ -42,7 +52,9 @@ _global_script_classes=[{
 _global_script_class_icons={
 "Fade": "",
 "Flower": "",
+"Gnome": "",
 "Player": "",
+"State": "",
 "SunMoon": "",
 "WaterBubble": "",
 "WaterSource": ""
