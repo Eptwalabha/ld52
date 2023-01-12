@@ -29,11 +29,6 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://scene/player/player.gd"
 }, {
-"base": "AnimationTree",
-"class": &"PlayerAnimationTree",
-"language": &"GDScript",
-"path": "res://scene/player/player_animation_tree.gd"
-}, {
 "base": "Node",
 "class": &"State",
 "language": &"GDScript",
@@ -59,7 +54,6 @@ _global_script_class_icons={
 "Flower": "",
 "Gnome": "",
 "Player": "",
-"PlayerAnimationTree": "",
 "State": "",
 "SunMoon": "",
 "WaterBubble": "",

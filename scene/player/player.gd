@@ -10,8 +10,16 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var pivot : Node2D = $pivot
 @onready var aim : Node2D = $aim
 @onready var anim : AnimationPlayer = $AnimationPlayer
-@onready var anim_tree : PlayerAnimationTree = $AnimationTree
-@onready var state_machine = anim_tree["parameters/playback"]
+@onready var state_machine = $AnimationTree["parameters/playback"]
+
+
+
+@export var can_drink : bool = false
+@export var drinking_pressed : bool = false
+@export var running : bool = false
+@export var on_air : bool = false
+@export var attacking : bool = false
+@export var spitting : bool = false
 
 var fullness : int = 0
 var aiming : bool = false
@@ -38,7 +46,7 @@ func __get_bubble_damage() -> float:
 
 func _physics_process(delta):
 
-	anim_tree.on_air = not is_on_floor()
+	self.on_air = not is_on_floor()
 
 	if aiming:
 		var dir = Vector2(
@@ -65,9 +73,9 @@ func _physics_process(delta):
 
 		if direction and not is_drinking:
 			velocity.x = direction * SPEED
-			anim_tree.running = true
+			self.running = true
 		else:
-			anim_tree.running = false
+			self.running = false
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 		move_and_slide()
@@ -80,7 +88,7 @@ func _process(delta):
 		drink(delta)
 
 	if Input.is_action_just_released("action"):
-		anim_tree.drinking_pressed = false
+		self.drinking_pressed = false
 
 	if Input.is_action_just_pressed("attack"):
 		state_machine.travel("hit")
@@ -95,24 +103,24 @@ func start_spit_aim() -> void:
 	aiming = true
 	aim.visible = true
 
-func can_drink() -> bool:
+func can_player_drink() -> bool:
 	return fullness < 6 and \
 		current_water_source != null and \
 		current_water_source.can_extract_water
 
 func start_drinking() -> void:
-	anim_tree.drinking_pressed = true
+	self.drinking_pressed = true
 	is_drinking = false
 	state_machine.travel("drink")
 
 func drink(delta: float) -> void:
-	if not is_drinking or !can_drink():
+	if not is_drinking or !can_player_drink():
 		return
 	drinking_duration += delta
 	if drinking_duration > drink_level_duration:
 		drinking_duration -= drink_level_duration
 		gulp(1)
-		if fullness >= 6 or !can_drink():
+		if fullness >= 6 or !can_player_drink():
 			stop_drinking()
 
 func gulp(amount: int) -> void:
@@ -122,7 +130,7 @@ func gulp(amount: int) -> void:
 
 func stop_drinking() -> void:
 	is_drinking = false
-	anim_tree.can_drink = false
+	self.can_drink = false
 
 func spit() -> void:
 	aiming = false
@@ -150,9 +158,9 @@ func _on_water_detector_area_entered(area : WaterSource):
 	if area == null:
 		pass
 	current_water_source = area
-	anim_tree.can_drink = can_drink()
+	self.can_drink = can_player_drink()
 
 func _on_water_detector_area_exited(area):
 	if area == current_water_source:
 		current_water_source = null
-		anim_tree.can_drink = false
+		self.can_drink = false
