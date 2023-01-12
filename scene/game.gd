@@ -42,3 +42,11 @@ func _on_sun_moon_new_cycle(id):
 func _on_sun_moon_harvest_moon():
 	playing = false
 	get_tree().change_scene_to_file("res://scene/story/game_over_win.tscn")
+
+
+func _on_gnome_spawner_timeout():
+	var g = preload("res://scene/gnome/gnome.tscn")
+	var gnome : Gnome = g.instantiate()
+	gnome.target = flower
+	gnome.global_position = Vector2(randf() * 500.0, -100.0)
+	$parallax/foreground/enemies.add_child(gnome)

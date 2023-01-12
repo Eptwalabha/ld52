@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cmw024l2feyww"]
+[gd_scene load_steps=53 format=3 uid="uid://cmw024l2feyww"]
 
 [ext_resource type="Script" path="res://scene/player/player.gd" id="1_pdtgp"]
 [ext_resource type="Texture2D" uid="uid://xp5k4w74fa3o" path="res://icon.svg" id="2_e6uun"]
 [ext_resource type="Texture2D" uid="uid://dsxle7blcgnoi" path="res://resource/images/target.svg" id="2_rjpnl"]
 [ext_resource type="Texture2D" uid="uid://cxirfvbucwxej" path="res://resource/images/straw.svg" id="4_4045j"]
+[ext_resource type="Script" path="res://scene/player/player_animation_tree.gd" id="5_3hn5t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ky3gt"]
 radius = 14.5536
@@ -38,7 +39,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("pivot/straw/Node2D:rotation")
+tracks/1/path = NodePath("pivot/straw/short_straw:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -95,52 +96,111 @@ tracks/5/keys = {
 "update": 0,
 "values": [0.0]
 }
-
-[sub_resource type="Animation" id="Animation_wgoxn"]
-resource_name = "cannot_drink"
-length = 0.5
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.5),
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("pivot/straw/short_straw:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"stop_drinking"
-}]
+"update": 0,
+"values": [Vector2(64.3062, -50.2465)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("pivot/character_pivot/Icon:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("pivot/character_pivot/Icon:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("pivot/character_pivot/Icon:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+
+[sub_resource type="Animation" id="Animation_wgoxn"]
+resource_name = "cannot_drink"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivot/character_pivot/Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/character_pivot/Icon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, -0.502655, 0.401426, -0.403171, 0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pivot/straw:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, 60)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pivot/straw/short_straw:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64.3062, -50.2465)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("pivot/straw:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.872665]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("pivot/straw/short_straw:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.08479]
+}
 
 [sub_resource type="Animation" id="Animation_kp166"]
 resource_name = "drink"
-length = 0.25
+length = 0.5
+loop_mode = 1
 step = 0.02
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -169,7 +229,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("pivot/straw/Node2D:position")
+tracks/2/path = NodePath("pivot/straw/short_straw:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -181,7 +241,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("pivot/straw/Node2D:rotation")
+tracks/3/path = NodePath("pivot/straw/short_straw:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -222,7 +282,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("pivot/straw/Node2D:rotation")
+tracks/1/path = NodePath("pivot/straw/short_straw:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -256,59 +316,85 @@ tracks/3/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_ayge8"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivot/character_pivot/Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_2rb3w"]
 resource_name = "start_drinking"
 length = 0.5
 step = 0.02
-tracks/0/type = "method"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath("pivot/straw:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"start_drinking"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("pivot/straw:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0.04, 0.12, 0.22, 0.34),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(30, -20), Vector2(30, -20), Vector2(30, 60)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("pivot/straw:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/straw:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0.04, 0.12, 0.2, 0.32),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, -1.56302, -1.56302, -0.872665]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("pivot/straw/Node2D:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pivot/straw/short_straw:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0.04, 0.36, 0.44),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, -1.08479]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pivot/straw/short_straw:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64.3062, -50.2465)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:is_drinking")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_mffkh"]
@@ -322,9 +408,12 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop_drinking"
+}]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -353,7 +442,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("pivot/straw/Node2D:rotation")
+tracks/3/path = NodePath("pivot/straw/short_straw:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -362,6 +451,53 @@ tracks/3/keys = {
 "update": 0,
 "values": [0.0, 0.0, -1.08479]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("pivot/straw/short_straw:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64.3062, -50.2465), Vector2(64.3062, -50.2465)]
+}
+
+[sub_resource type="Animation" id="Animation_a6smr"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivot/character_pivot/Icon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.523599, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3ir08"]
+resource_name = "on-air"
+length = 0.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivot/character_pivot/Icon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.261799, 0.0, 0.261799, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tev7r"]
 _data = {
@@ -369,11 +505,149 @@ _data = {
 "cannot_drink": SubResource("Animation_wgoxn"),
 "drink": SubResource("Animation_kp166"),
 "hit": SubResource("Animation_d5dbg"),
+"idle": SubResource("Animation_ayge8"),
+"on-air": SubResource("Animation_3ir08"),
+"run": SubResource("Animation_a6smr"),
 "start_drinking": SubResource("Animation_2rb3w"),
 "stop_drinking": SubResource("Animation_mffkh")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5q1r5"]
+animation = &"cannot_drink"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_28wmt"]
+animation = &"drink"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ybnw"]
+animation = &"start_drinking"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jxfgn"]
+animation = &"stop_drinking"
+play_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p4xof"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "can_drink and drinking_pressed"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gm0tc"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gmqps"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "!can_drink"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5nt6k"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vmsyh"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ntphm"]
+advance_mode = 2
+advance_expression = "!can_drink or !drinking_pressed"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pd5qu"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "!drinking_pressed"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_t70ba"]
+states/End/position = Vector2(978, 115)
+states/cannot_drink/node = SubResource("AnimationNodeAnimation_5q1r5")
+states/cannot_drink/position = Vector2(594, 45)
+states/drink/node = SubResource("AnimationNodeAnimation_28wmt")
+states/drink/position = Vector2(594, 182)
+states/start_drinking/node = SubResource("AnimationNodeAnimation_2ybnw")
+states/start_drinking/position = Vector2(373, 100)
+states/stop_drinking/node = SubResource("AnimationNodeAnimation_jxfgn")
+states/stop_drinking/position = Vector2(779, 115)
+transitions = ["start_drinking", "drink", SubResource("AnimationNodeStateMachineTransition_p4xof"), "Start", "start_drinking", SubResource("AnimationNodeStateMachineTransition_gm0tc"), "start_drinking", "cannot_drink", SubResource("AnimationNodeStateMachineTransition_gmqps"), "cannot_drink", "stop_drinking", SubResource("AnimationNodeStateMachineTransition_5nt6k"), "stop_drinking", "End", SubResource("AnimationNodeStateMachineTransition_vmsyh"), "drink", "stop_drinking", SubResource("AnimationNodeStateMachineTransition_ntphm"), "start_drinking", "stop_drinking", SubResource("AnimationNodeStateMachineTransition_pd5qu")]
+graph_offset = Vector2(0, -13.4615)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b6ul4"]
+animation = &"hit"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6dlx6"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3fxkg"]
+animation = &"hit"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g25r0"]
+animation = &"on-air"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_411wv"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_ns1bp"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_411wv")
+blend_point_0/pos = 0.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4b66x"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xm8ie"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m61ay"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vvwwn"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1nt0k"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wg5xd"]
+advance_mode = 2
+advance_expression = "running and !on_air"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sw1et"]
+advance_mode = 2
+advance_expression = "!running or on_air"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8o58d"]
+advance_mode = 2
+advance_expression = "on_air"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xqr6n"]
+advance_mode = 2
+advance_expression = "!on_air"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kocus"]
+advance_mode = 2
+advance_expression = "attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_62ck4"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kqnsx"]
+states/End/position = Vector2(736, 100)
+states/drink/node = SubResource("AnimationNodeStateMachine_t70ba")
+states/drink/position = Vector2(578, 195)
+states/hit/node = SubResource("AnimationNodeAnimation_b6ul4")
+states/hit/position = Vector2(388, 195)
+states/idle/node = SubResource("AnimationNodeAnimation_6dlx6")
+states/idle/position = Vector2(388, 100)
+"states/on air attack/node" = SubResource("AnimationNodeAnimation_3fxkg")
+"states/on air attack/position" = Vector2(388, -107)
+states/on-air/node = SubResource("AnimationNodeAnimation_g25r0")
+states/on-air/position = Vector2(388, 9)
+states/run/node = SubResource("AnimationNodeBlendSpace1D_ns1bp")
+states/run/position = Vector2(578, 9)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_4b66x"), "idle", "hit", SubResource("AnimationNodeStateMachineTransition_xm8ie"), "hit", "idle", SubResource("AnimationNodeStateMachineTransition_m61ay"), "idle", "drink", SubResource("AnimationNodeStateMachineTransition_vvwwn"), "drink", "idle", SubResource("AnimationNodeStateMachineTransition_1nt0k"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_wg5xd"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_sw1et"), "idle", "on-air", SubResource("AnimationNodeStateMachineTransition_8o58d"), "on-air", "idle", SubResource("AnimationNodeStateMachineTransition_xqr6n"), "on-air", "on air attack", SubResource("AnimationNodeStateMachineTransition_kocus"), "on air attack", "on-air", SubResource("AnimationNodeStateMachineTransition_62ck4")]
+graph_offset = Vector2(-102, -6)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_qvufu"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_ohahw"]
+
+[node name="Player" type="CharacterBody2D"]
 collision_mask = 6
 floor_constant_speed = true
 floor_snap_length = 8.0
@@ -392,10 +666,10 @@ texture = ExtResource("2_rjpnl")
 
 [node name="straw" type="Node2D" parent="pivot"]
 
-[node name="Node2D" type="Node2D" parent="pivot/straw"]
+[node name="short_straw" type="Node2D" parent="pivot/straw"]
 position = Vector2(64.3062, -50.2465)
 
-[node name="Icon" type="Sprite2D" parent="pivot/straw/Node2D"]
+[node name="Icon" type="Sprite2D" parent="pivot/straw/short_straw"]
 position = Vector2(-0.696259, -21.4989)
 rotation = -0.0478683
 scale = Vector2(0.0738331, 0.383896)
@@ -451,6 +725,15 @@ shape = SubResource("SeparationRayShape2D_ge34x")
 libraries = {
 "": SubResource("AnimationLibrary_tev7r")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_kqnsx")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_qvufu")
+parameters/drink/playback = SubResource("AnimationNodeStateMachinePlayback_ohahw")
+parameters/run/blend_position = 0.039548
+script = ExtResource("5_3hn5t")
 
 [connection signal="area_entered" from="pivot/ItemDetector" to="." method="_on_item_detector_area_entered"]
 [connection signal="area_entered" from="pivot/WaterDetector" to="." method="_on_water_detector_area_entered"]

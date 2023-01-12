@@ -9,14 +9,14 @@
 [ext_resource type="Script" path="res://scene/gnome/npc_state_drink.gd" id="7_73qw6"]
 [ext_resource type="Script" path="res://scene/gnome/npc_state_leave.gd" id="8_bpmka"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ob85"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c6r3j"]
 radius = 7.0
 height = 24.0
 
-[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_o0u1b"]
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_vj6ox"]
 length = 26.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cm6k"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bippu"]
 size = Vector2(34, 16)
 
 [node name="Gnome" type="CharacterBody2D"]
@@ -26,10 +26,10 @@ floor_snap_length = 5.0
 script = ExtResource("1_iam6g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_8ob85")
+shape = SubResource("CapsuleShape2D_c6r3j")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-shape = SubResource("SeparationRayShape2D_o0u1b")
+shape = SubResource("SeparationRayShape2D_vj6ox")
 
 [node name="pivot" type="Node2D" parent="."]
 
@@ -44,13 +44,12 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/plant_detector"]
 position = Vector2(17, 12)
-shape = SubResource("RectangleShape2D_7cm6k")
+shape = SubResource("RectangleShape2D_bippu")
 
 [node name="states" type="Node" parent="."]
 
 [node name="idle" type="Node" parent="states"]
 script = ExtResource("2_ulmaw")
-state_name = "idle"
 
 [node name="walk" type="Node" parent="states"]
 script = ExtResource("3_inp0e")
@@ -60,7 +59,6 @@ script = ExtResource("5_h0d3m")
 
 [node name="jump" type="Node" parent="states"]
 script = ExtResource("4_yxcar")
-state_name = null
 
 [node name="drink" type="Node" parent="states"]
 script = ExtResource("7_73qw6")

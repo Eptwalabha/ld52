@@ -87,8 +87,8 @@ drag_horizontal_enabled = true
 
 [node name="enemies" type="Node2D" parent="parallax/foreground"]
 
-[node name="Gnome" parent="parallax/foreground" node_paths=PackedStringArray("target") instance=ExtResource("8_5cyso")]
-target = NodePath("../level/flower")
+[node name="Gnome" parent="parallax/foreground/enemies" node_paths=PackedStringArray("target") instance=ExtResource("8_5cyso")]
+target = NodePath("../../level/flower")
 
 [node name="ui" type="CanvasLayer" parent="."]
 
@@ -103,7 +103,10 @@ size_flags_horizontal = 8
 bbcode_enabled = true
 text = "toto"
 
+[node name="GnomeSpawner" type="Timer" parent="."]
+
 [connection signal="harvest_moon" from="parallax/sky/SunMoon" to="." method="_on_sun_moon_harvest_moon"]
 [connection signal="new_cycle" from="parallax/sky/SunMoon" to="." method="_on_sun_moon_new_cycle"]
 [connection signal="died" from="parallax/foreground/level/flower" to="." method="_on_flower_died"]
 [connection signal="spat" from="parallax/foreground/player" to="." method="_on_player_spat"]
+[connection signal="timeout" from="GnomeSpawner" to="." method="_on_gnome_spawner_timeout"]

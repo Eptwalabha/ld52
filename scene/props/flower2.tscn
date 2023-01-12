@@ -1,0 +1,306 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4vybrbnvi7jp"]
+
+[ext_resource type="Script" path="res://scene/props/flower2.gd" id="1_qdkr3"]
+[ext_resource type="Texture2D" uid="uid://xp5k4w74fa3o" path="res://icon.svg" id="1_xxfwf"]
+[ext_resource type="PackedScene" uid="uid://dcjjch461pfyu" path="res://scene/level/day_night.tscn" id="2_wjwsx"]
+
+[sub_resource type="Curve" id="Curve_6s3e5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.208333, 0), -4.80001, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_mvbkd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0378788, 0), -26.4, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_sdtli"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:width_curve:point_0/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Line2D:width_curve:point_1/position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.208333, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Line2D/branch1:width_curve:point_1/position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.0378788, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Line2D/branch1:width_curve:point_0/position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Line2D/Node2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(104, 128)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Line2D/Node2D/Icon:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Line2D/Node2D/Icon:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Line2D/Node2D2:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(224, -141)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Line2D/Node2D2/Icon2:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Line2D/Node2D2/Icon2:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_2rg3x"]
+resource_name = "grow"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:width_curve:point_0/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0.436364), Vector2(0, 1), Vector2(0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Line2D:width_curve:point_1/position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.208333, 0), Vector2(1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Line2D/branch1:width_curve:point_1/position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.0378788, 0), Vector2(0.0378788, 0), Vector2(1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Line2D/branch1:width_curve:point_0/position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.65, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 1), Vector2(0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Line2D/Node2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(104, 128), Vector2(74, 32), Vector2(89, -21), Vector2(89, -21)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Line2D/Node2D/Icon:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Line2D/Node2D/Icon:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 0.196146),
+"update": 0,
+"values": [0.0, 0.0, 2.40855]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Line2D/Node2D2:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(191, -108), Vector2(191, -108), Vector2(224, -141), Vector2(228, -230), Vector2(196, -267), Vector2(166, -295)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Line2D/Node2D2/Icon2:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(1.5, 1.5)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Line2D/Node2D2/Icon2:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 0.517632),
+"update": 0,
+"values": [0.0, 0.0, -3.25504]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_le7lo"]
+_data = {
+"RESET": SubResource("Animation_sdtli"),
+"grow": SubResource("Animation_2rg3x")
+}
+
+[node name="Flower" type="Node2D"]
+position = Vector2(46, 242)
+script = ExtResource("1_qdkr3")
+
+[node name="SunMoon" parent="." instance=ExtResource("2_wjwsx")]
+position = Vector2(535, 182)
+
+[node name="Line2D" type="Line2D" parent="."]
+modulate = Color(0.313726, 0.329412, 0.254902, 1)
+position = Vector2(357, 225)
+scale = Vector2(0.4, 0.4)
+points = PackedVector2Array(182.5, 277.5, 182, 246, 180, 215, 167.5, 190, 144, 169, 113, 154, 87, 119, 78, 89, 67, 56, 68, 21, 82, -16, 113, -46, 137.347, -62.0689, 163, -79, 187, -98, 208, -120, 226, -156, 232, -184, 227, -225, 216, -255, 185, -280, 157, -307, 139, -331, 123, -354, 116, -377, 121, -409, 131, -432, 148, -455, 160, -470, 172.5, -495, 175, -560)
+width = 100.0
+width_curve = SubResource("Curve_6s3e5")
+
+[node name="branch1" type="Line2D" parent="Line2D"]
+points = PackedVector2Array(112, -36, 112, -91, 110, -120, 102, -146, 87.4999, -162.5, 64, -176, 25, -185, -28, -184, -62.4999, -170, -79, -149, -87.4999, -115, -74, -81, -52.4999, -67.5, -17.5, -62.5, 17, -78, 35, -102.5, 40, -140, 37.5, -180, 22, -217, -2.5, -237.5, -22.5, -262.5, -35, -297.5, -41, -343)
+width = 30.0
+width_curve = SubResource("Curve_mvbkd")
+
+[node name="Node2D" type="Node2D" parent="Line2D"]
+position = Vector2(104, 128)
+
+[node name="Icon" type="Sprite2D" parent="Line2D/Node2D"]
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("1_xxfwf")
+
+[node name="Node2D2" type="Node2D" parent="Line2D"]
+position = Vector2(224, -141)
+
+[node name="Icon2" type="Sprite2D" parent="Line2D/Node2D2"]
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("1_xxfwf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_le7lo")
+}
