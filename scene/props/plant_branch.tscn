@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b518hx6ha2th8"]
+
+[ext_resource type="Script" path="res://scene/props/plant_branch.gd" id="1_4lcnp"]
+
+[sub_resource type="Curve2D" id="Curve2D_ebbld"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, -10, 0, 0, 0, 0, 21.3267, 0.841845, 0, -50)
+}
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_rot1t"]
+resource_local_to_scene = true
+_data = [Vector2(0, 0.01), 12.0, 0.0, 1, 0, Vector2(0.424242, 0), -0.0235714, 0.0, 1, 0]
+point_count = 2
+
+[node name="PlantBranch" type="Path2D"]
+curve = SubResource("Curve2D_ebbld")
+script = ExtResource("1_4lcnp")
+total_duration = 0.5
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, -5, 0, -10, 0, -15, 0, -20, 0, -25, 0, -30, 0, -35, 0, -40, 0, -45, 0, -50)
+width_curve = SubResource("Curve_rot1t")
+default_color = Color(0.323104, 0.466598, 0.0403144, 1)
