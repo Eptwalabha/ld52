@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dcjjch461pfyu"]
+[gd_scene load_steps=13 format=3 uid="uid://dcjjch461pfyu"]
 
 [ext_resource type="Shader" path="res://resource/shader/bg.gdshader" id="1_20skv"]
 [ext_resource type="Texture2D" uid="uid://xp5k4w74fa3o" path="res://icon.svg" id="1_aldsk"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://db0gep3r0hry6" path="res://resource/shader/day_night_cycle.tres" id="3_jpmfv"]
 [ext_resource type="Texture2D" uid="uid://yau728jfirjf" path="res://resource/images/sun.png" id="5_b8ref"]
 [ext_resource type="Shader" path="res://resource/shader/moon.gdshader" id="6_0tj67"]
-[ext_resource type="Texture2D" uid="uid://bsrp5x3lqvmym" path="res://resource/images/uv-sphere.png" id="7_6634e"]
 [ext_resource type="Texture2D" uid="uid://c62ox3ev2e6xo" path="res://resource/images/desert-bg.png" id="7_ohvbw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_34ws5"]
@@ -28,7 +27,6 @@ shader_parameter/day_night = ExtResource("3_jpmfv")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4w1yg"]
 shader = ExtResource("6_0tj67")
 shader_parameter/progression = 0.0
-shader_parameter/moon_normal_map = ExtResource("7_6634e")
 
 [node name="SunMoon" type="Node2D"]
 material = SubResource("ShaderMaterial_34ws5")
