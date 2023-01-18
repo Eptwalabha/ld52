@@ -25,6 +25,11 @@ _global_script_classes=[{
 "path": "res://scene/gnome/gnome.gd"
 }, {
 "base": "CharacterBody2D",
+"class": &"NPC",
+"language": &"GDScript",
+"path": "res://scene/story/npc/npc.gd"
+}, {
+"base": "CharacterBody2D",
 "class": &"Player",
 "language": &"GDScript",
 "path": "res://scene/player/player.gd"
@@ -53,6 +58,7 @@ _global_script_class_icons={
 "Fade": "",
 "Flower": "",
 "Gnome": "",
+"NPC": "",
 "Player": "",
 "State": "",
 "SunMoon": "",

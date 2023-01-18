@@ -9,130 +9,130 @@
 [ext_resource type="Script" path="res://scene/gnome/npc_state_drink.gd" id="7_73qw6"]
 [ext_resource type="Script" path="res://scene/gnome/npc_state_leave.gd" id="8_bpmka"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o4riy"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_beh46"]
 radius = 7.0
 height = 24.0
 
-[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_fngmy"]
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_3scrr"]
 length = 26.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aywxy"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpl8v"]
 size = Vector2(34, 16)
 
-[sub_resource type="Animation" id="Animation_br7ea"]
+[sub_resource type="Animation" id="Animation_ugmuu"]
 resource_name = "drink"
 loop_mode = 1
 
-[sub_resource type="Animation" id="Animation_ei84u"]
+[sub_resource type="Animation" id="Animation_2ddcn"]
 resource_name = "drink-end"
 
-[sub_resource type="Animation" id="Animation_emfba"]
+[sub_resource type="Animation" id="Animation_ebt7q"]
 resource_name = "drink-start"
 
-[sub_resource type="Animation" id="Animation_x6h2b"]
+[sub_resource type="Animation" id="Animation_vroky"]
 resource_name = "emerge-from-ground"
 
-[sub_resource type="Animation" id="Animation_ael1d"]
+[sub_resource type="Animation" id="Animation_e2qs3"]
 resource_name = "hurt"
 
-[sub_resource type="Animation" id="Animation_kacmt"]
+[sub_resource type="Animation" id="Animation_n3xtj"]
 resource_name = "idle"
 loop_mode = 2
 
-[sub_resource type="Animation" id="Animation_7lyxc"]
+[sub_resource type="Animation" id="Animation_x5j05"]
 resource_name = "on-air"
 loop_mode = 1
 
-[sub_resource type="Animation" id="Animation_qeu3t"]
+[sub_resource type="Animation" id="Animation_lt6f0"]
 resource_name = "walk"
 loop_mode = 1
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yynb5"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m1tf5"]
 _data = {
-"drink": SubResource("Animation_br7ea"),
-"drink-end": SubResource("Animation_ei84u"),
-"drink-start": SubResource("Animation_emfba"),
-"emerge-from-ground": SubResource("Animation_x6h2b"),
-"hurt": SubResource("Animation_ael1d"),
-"idle": SubResource("Animation_kacmt"),
-"on-air": SubResource("Animation_7lyxc"),
-"walk": SubResource("Animation_qeu3t")
+"drink": SubResource("Animation_ugmuu"),
+"drink-end": SubResource("Animation_2ddcn"),
+"drink-start": SubResource("Animation_ebt7q"),
+"emerge-from-ground": SubResource("Animation_vroky"),
+"hurt": SubResource("Animation_e2qs3"),
+"idle": SubResource("Animation_n3xtj"),
+"on-air": SubResource("Animation_x5j05"),
+"walk": SubResource("Animation_lt6f0")
 }
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jqcci"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hwhlv"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uj8pu"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c611f"]
 animation = &"hurt"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_es0we"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_spv24"]
 animation = &"idle"
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3k2p1"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_iukmo"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3jei8"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xch8v"]
 animation = &"on-air"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gm6ww"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h1b4g"]
 animation = &"walk"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gtulj"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kbolh"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5dr1i"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7unck"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_utrv3"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2q4o2"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yv7pp"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_68fof"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h40rg"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mtl57"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_il6hb"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m6md2"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l5n2t"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ckcf0"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h87i3"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0j17n"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ufby1"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wmnhp"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_42evg"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f2nm2"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ewccm"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jlmm3"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_yvcnk"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_wpsje"]
 states/End/position = Vector2(981, 100)
 states/Start/position = Vector2(281, 100)
-states/drink/node = SubResource("AnimationNodeStateMachine_jqcci")
+states/drink/node = SubResource("AnimationNodeStateMachine_hwhlv")
 states/drink/position = Vector2(697, 242)
-states/hurt/node = SubResource("AnimationNodeAnimation_uj8pu")
+states/hurt/node = SubResource("AnimationNodeAnimation_c611f")
 states/hurt/position = Vector2(697, -24)
-states/idle/node = SubResource("AnimationNodeAnimation_es0we")
+states/idle/node = SubResource("AnimationNodeAnimation_spv24")
 states/idle/position = Vector2(555, 100)
-states/leave/node = SubResource("AnimationNodeStateMachine_3k2p1")
+states/leave/node = SubResource("AnimationNodeStateMachine_iukmo")
 states/leave/position = Vector2(804, 100)
-states/on-air/node = SubResource("AnimationNodeAnimation_3jei8")
+states/on-air/node = SubResource("AnimationNodeAnimation_xch8v")
 states/on-air/position = Vector2(402, 242)
-states/walk/node = SubResource("AnimationNodeAnimation_gm6ww")
+states/walk/node = SubResource("AnimationNodeAnimation_h1b4g")
 states/walk/position = Vector2(402, -24)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_gtulj"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_5dr1i"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_utrv3"), "idle", "hurt", SubResource("AnimationNodeStateMachineTransition_yv7pp"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_h40rg"), "idle", "on-air", SubResource("AnimationNodeStateMachineTransition_il6hb"), "on-air", "idle", SubResource("AnimationNodeStateMachineTransition_l5n2t"), "idle", "leave", SubResource("AnimationNodeStateMachineTransition_h87i3"), "leave", "End", SubResource("AnimationNodeStateMachineTransition_ufby1"), "idle", "drink", SubResource("AnimationNodeStateMachineTransition_42evg"), "drink", "idle", SubResource("AnimationNodeStateMachineTransition_ewccm")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_kbolh"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_7unck"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2q4o2"), "idle", "hurt", SubResource("AnimationNodeStateMachineTransition_68fof"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_mtl57"), "idle", "on-air", SubResource("AnimationNodeStateMachineTransition_m6md2"), "on-air", "idle", SubResource("AnimationNodeStateMachineTransition_ckcf0"), "idle", "leave", SubResource("AnimationNodeStateMachineTransition_0j17n"), "leave", "End", SubResource("AnimationNodeStateMachineTransition_wmnhp"), "idle", "drink", SubResource("AnimationNodeStateMachineTransition_f2nm2"), "drink", "idle", SubResource("AnimationNodeStateMachineTransition_jlmm3")]
 graph_offset = Vector2(-66, -233)
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_rnmy0"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_hsc6g"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_v3mxj"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_rlyau"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_ql3qo"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7ge1s"]
 
 [node name="Gnome" type="CharacterBody2D"]
 collision_layer = 8
@@ -141,10 +141,10 @@ floor_snap_length = 5.0
 script = ExtResource("1_iam6g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_o4riy")
+shape = SubResource("CapsuleShape2D_beh46")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-shape = SubResource("SeparationRayShape2D_fngmy")
+shape = SubResource("SeparationRayShape2D_3scrr")
 
 [node name="pivot" type="Node2D" parent="."]
 
@@ -159,7 +159,7 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/plant_detector"]
 position = Vector2(17, 12)
-shape = SubResource("RectangleShape2D_aywxy")
+shape = SubResource("RectangleShape2D_hpl8v")
 
 [node name="states" type="Node" parent="."]
 
@@ -185,16 +185,16 @@ script = ExtResource("8_bpmka")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_yynb5")
+"": SubResource("AnimationLibrary_m1tf5")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_yvcnk")
+tree_root = SubResource("AnimationNodeStateMachine_wpsje")
 anim_player = NodePath("../AnimationPlayer")
 advance_expression_base_node = NodePath("..")
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_rnmy0")
-parameters/drink/playback = SubResource("AnimationNodeStateMachinePlayback_v3mxj")
-parameters/leave/playback = SubResource("AnimationNodeStateMachinePlayback_ql3qo")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_hsc6g")
+parameters/drink/playback = SubResource("AnimationNodeStateMachinePlayback_rlyau")
+parameters/leave/playback = SubResource("AnimationNodeStateMachinePlayback_7ge1s")
 
 [connection signal="area_entered" from="pivot/plant_detector" to="." method="_on_plant_detector_area_entered"]
 [connection signal="area_exited" from="pivot/plant_detector" to="." method="_on_plant_detector_area_exited"]

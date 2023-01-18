@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvm0bjqjl8qe5"]
+[gd_scene load_steps=10 format=3 uid="uid://bvm0bjqjl8qe5"]
 
 [ext_resource type="PackedScene" uid="uid://jp1xy6r2x0bo" path="res://scene/level/level.tscn" id="1_lw7lw"]
 [ext_resource type="Script" path="res://scene/game.gd" id="1_ndv1p"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dcjjch461pfyu" path="res://scene/level/day_night.tscn" id="6_kxb6o"]
 [ext_resource type="PackedScene" uid="uid://ifoicgn75pxc" path="res://scene/props/tree.tscn" id="6_wd8ky"]
 [ext_resource type="PackedScene" uid="uid://46ri45wr2fma" path="res://scene/gnome/gnome.tscn" id="8_5cyso"]
+[ext_resource type="PackedScene" uid="uid://dj2yxukewgocl" path="res://scene/story/npc/npc.tscn" id="9_v4baw"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ndv1p")
@@ -89,6 +90,9 @@ drag_horizontal_enabled = true
 
 [node name="Gnome" parent="parallax/foreground/enemies" node_paths=PackedStringArray("target") instance=ExtResource("8_5cyso")]
 target = NodePath("../../level/flower")
+
+[node name="NPC" parent="parallax/foreground" instance=ExtResource("9_v4baw")]
+position = Vector2(515, 111)
 
 [node name="ui" type="CanvasLayer" parent="."]
 

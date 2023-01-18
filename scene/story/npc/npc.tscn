@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://dj2yxukewgocl"]
+
+[ext_resource type="Texture2D" uid="uid://xp5k4w74fa3o" path="res://icon.svg" id="1_dn5k6"]
+[ext_resource type="Script" path="res://scene/story/npc/npc.gd" id="1_yed0k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sgf4v"]
+radius = 16.0
+height = 60.0
+
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_k0dgb"]
+
+[sub_resource type="Animation" id="Animation_gqqla"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_wd074"]
+resource_name = "talk"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2fbsw"]
+_data = {
+"idle": SubResource("Animation_gqqla"),
+"talk": SubResource("Animation_wd074")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jaxfm"]
+size = Vector2(272, 60)
+
+[node name="NPC" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_yed0k")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+scale = Vector2(0.265625, 0.5)
+texture = ExtResource("1_dn5k6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_sgf4v")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 20)
+shape = SubResource("SeparationRayShape2D_k0dgb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2fbsw")
+}
+
+[node name="DialogArea" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogArea"]
+shape = SubResource("RectangleShape2D_jaxfm")
+
+[node name="Dialog" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -91.0
+offset_right = 85.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]Hello [color=red]friend[/color][/center]"
+scroll_active = false
+
+[connection signal="body_entered" from="DialogArea" to="." method="_on_area_2d_body_entered"]

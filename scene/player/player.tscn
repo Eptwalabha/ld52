@@ -652,7 +652,6 @@ collision_mask = 6
 floor_constant_speed = true
 floor_snap_length = 8.0
 script = ExtResource("1_pdtgp")
-is_drinking = true
 
 [node name="aim" type="Node2D" parent="."]
 visible = false
@@ -691,12 +690,10 @@ collision_mask = 0
 position = Vector2(-2.20449, 2.0866)
 rotation = 4.047
 shape = SubResource("CapsuleShape2D_ky3gt")
-disabled = true
 
 [node name="character_pivot" type="Node2D" parent="pivot"]
 
 [node name="Icon" type="Sprite2D" parent="pivot/character_pivot"]
-position = Vector2(0, -1.46551)
 scale = Vector2(0.265625, 0.5)
 texture = ExtResource("2_e6uun")
 
